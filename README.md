@@ -10,6 +10,11 @@ library.
 
 ## 🚧 Progress
 
+- [ ] Use enums in requests: `Format`, `DateRange`, `OrderBy` (maybe split `OrderBy`
+  into `CharacterOrderBy`, `ComicOrderBy`, etc.)
+- [ ] Tests
+- [ ] Submit to Packagist
+
 | **Endpoint**                      | **Status** |
 |-----------------------------------|:----------:|
 | /characters                       |     ✅      |
@@ -24,12 +29,12 @@ library.
 | /comics/{comicId}/creators        |     ✅      |
 | /comics/{comicId}/events          |     ✅      |
 | /comics/{comicId}/stories         |     ✅      |
-| /creators                         |     ❌      |
-| /creators/{creatorId}             |     ❌      |
-| /creators/{creatorId}/comics      |     ❌      |
-| /creators/{creatorId}/events      |     ❌      |
-| /creators/{creatorId}/series      |     ❌      |
-| /creators/{creatorId}/stories     |     ❌      |
+| /creators                         |     ✅      |
+| /creators/{creatorId}             |     ✅      |
+| /creators/{creatorId}/comics      |     ✅      |
+| /creators/{creatorId}/events      |     ✅      |
+| /creators/{creatorId}/series      |     ✅      |
+| /creators/{creatorId}/stories     |     ✅      |
 | /events                           |     ❌      |
 | /events/{eventId}                 |     ❌      |
 | /events/{eventId}/characters      |     ❌      |
