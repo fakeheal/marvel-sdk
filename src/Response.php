@@ -9,7 +9,7 @@ use Chronoarc\Marvel\Traits\JsonDeserialize;
 use Saloon\Contracts\DataObjects\WithResponse;
 use Saloon\Traits\Responses\HasResponse;
 
-abstract class Response implements JsonDeserialize, WithResponse
+abstract class Response implements JsonDeserializable, WithResponse
 {
 	use JsonDeserialize;
 	use HasResponse;
