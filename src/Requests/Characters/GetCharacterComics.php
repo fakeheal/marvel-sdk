@@ -8,7 +8,6 @@ use Chronoarc\Marvel\Dto\ComicDataWrapper;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use Chronoarc\Marvel\Request;
 use DateTimeInterface;
-use Exception;
 use JsonException;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;

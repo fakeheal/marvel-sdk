@@ -7,6 +7,8 @@ namespace Chronoarc\Marvel\Requests\Comics;
 use Chronoarc\Marvel\Dto\ComicDataWrapper;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use Chronoarc\Marvel\Request;
+use DateTimeInterface;
+use JsonException;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;
 
@@ -37,7 +39,7 @@ class GetComics extends Request
      * @param ?string $ean Filter by EAN.
      * @param ?string $issn Filter by ISSN.
      * @param ?bool $hasDigitalIssue Include only results which are available digitally.
-     * @param ?\DateTimeInterface $modifiedSince Return only comics which have been modified since the specified date.
+     * @param ?DateTimeInterface $modifiedSince Return only comics which have been modified since the specified date.
      * @param ?array $creators Return only comics which feature work by the specified creators
      * @param ?array $characters Return only comics which feature the specified characters
      * @param ?array $series Return only comics which are part of the specified series
@@ -56,27 +58,27 @@ class GetComics extends Request
         protected ?string             $dateDescriptor = null,
         protected ?array              $dateRange = null,
         protected ?string             $title = null,
-        protected ?string             $titleStartsWith = null,
-        protected ?int                $startYear = null,
-        protected ?int                $issueNumber = null,
-        protected ?string             $diamondCode = null,
-        protected ?int                $digitalId = null,
-        protected ?string             $upc = null,
-        protected ?string             $isbn = null,
-        protected ?string             $ean = null,
-        protected ?string             $issn = null,
-        protected ?bool               $hasDigitalIssue = null,
-        protected ?\DateTimeInterface $modifiedSince = null,
-        protected ?array              $creators = null,
-        protected ?array              $characters = null,
-        protected ?array              $series = null,
-        protected ?array              $events = null,
-        protected ?array              $stories = null,
-        protected ?array              $sharedAppearances = null,
-        protected ?array              $collaborators = null,
-        protected ?array              $orderBy = null,
-        protected ?int                $limit = null,
-        protected ?int                $offset = null,
+        protected ?string            $titleStartsWith = null,
+        protected ?int               $startYear = null,
+        protected ?int               $issueNumber = null,
+        protected ?string            $diamondCode = null,
+        protected ?int               $digitalId = null,
+        protected ?string            $upc = null,
+        protected ?string            $isbn = null,
+        protected ?string            $ean = null,
+        protected ?string            $issn = null,
+        protected ?bool              $hasDigitalIssue = null,
+        protected ?DateTimeInterface $modifiedSince = null,
+        protected ?array             $creators = null,
+        protected ?array             $characters = null,
+        protected ?array             $series = null,
+        protected ?array             $events = null,
+        protected ?array             $stories = null,
+        protected ?array             $sharedAppearances = null,
+        protected ?array             $collaborators = null,
+        protected ?array             $orderBy = null,
+        protected ?int               $limit = null,
+        protected ?int               $offset = null,
     )
     {
     }
@@ -92,7 +94,7 @@ class GetComics extends Request
      * @param Response $response
      * @return ComicDataWrapper
      * @throws InvalidAttributeTypeException
-     * @throws \JsonException
+     * @throws JsonException
      */
     public function createDtoFromResponse(Response $response): ComicDataWrapper
     {

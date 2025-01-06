@@ -21,6 +21,41 @@ class Marvel extends Connector
     {
     }
 
+    public function resolveBaseUrl(): string
+    {
+        return 'https://gateway.marvel.com/v1/public';
+    }
+
+    public function characters(): Characters
+    {
+        return new Characters($this);
+    }
+
+    public function comics(): Comics
+    {
+        return new Comics($this);
+    }
+
+    public function creators(): Creators
+    {
+        return new Creators($this);
+    }
+
+    public function events(): Events
+    {
+        return new Events($this);
+    }
+
+    public function series(): Series
+    {
+        return new Series($this);
+    }
+
+    public function stories(): Stories
+    {
+        return new Stories($this);
+    }
+
     protected function defaultQuery(): array
     {
         return [
@@ -28,46 +63,5 @@ class Marvel extends Connector
             'ts' => time(),
             'hash' => md5(time().$this->privateKey.$this->publicKey)
         ];
-    }
-
-    public function resolveBaseUrl(): string
-    {
-        return 'https://gateway.marvel.com/v1/public';
-    }
-
-
-    public function characters(): Characters
-    {
-        return new Characters($this);
-    }
-
-
-    public function comics(): Comics
-    {
-        return new Comics($this);
-    }
-
-
-    public function creators(): Creators
-    {
-        return new Creators($this);
-    }
-
-
-    public function events(): Events
-    {
-        return new Events($this);
-    }
-
-
-    public function series(): Series
-    {
-        return new Series($this);
-    }
-
-
-    public function stories(): Stories
-    {
-        return new Stories($this);
     }
 }

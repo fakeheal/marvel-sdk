@@ -8,7 +8,8 @@ namespace Chronoarc\Marvel\Requests\Comics;
 use Chronoarc\Marvel\Dto\EventDataWrapper;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use Chronoarc\Marvel\Request;
-use Exception;
+use DateTimeInterface;
+use JsonException;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;
 
@@ -26,7 +27,7 @@ class GetComicEvents extends Request
      * @param int $comicId The comic ID.
      * @param ?string $name Filter the event list by name.
      * @param ?string $nameStartsWith Return events with names that begin with the specified string (e.g. Sp).
-     * @param ?\DateTimeInterface $modifiedSince Return only events which have been modified since the specified date.
+     * @param ?DateTimeInterface $modifiedSince Return only events which have been modified since the specified date.
      * @param ?array $creators Return only events which feature work by the specified creators
      * @param ?array $characters Return only events which feature the specified characters
      * @param ?array $series Return only events which are part of the specified series
@@ -36,17 +37,17 @@ class GetComicEvents extends Request
      * @param ?int $offset Skip the specified number of resources in the result set.
      */
     public function __construct(
-        protected int                 $comicId,
-        protected ?string             $name = null,
-        protected ?string             $nameStartsWith = null,
-        protected ?\DateTimeInterface $modifiedSince = null,
-        protected ?array              $creators = null,
-        protected ?array              $characters = null,
-        protected ?array              $series = null,
-        protected ?array              $stories = null,
-        protected ?array              $orderBy = null,
-        protected ?int                $limit = null,
-        protected ?int                $offset = null,
+        protected int                $comicId,
+        protected ?string            $name = null,
+        protected ?string            $nameStartsWith = null,
+        protected ?DateTimeInterface $modifiedSince = null,
+        protected ?array             $creators = null,
+        protected ?array             $characters = null,
+        protected ?array             $series = null,
+        protected ?array             $stories = null,
+        protected ?array             $orderBy = null,
+        protected ?int               $limit = null,
+        protected ?int               $offset = null,
     )
     {
     }
@@ -62,7 +63,7 @@ class GetComicEvents extends Request
      * @param Response $response
      * @return EventDataWrapper
      * @throws InvalidAttributeTypeException
-     * @throws \JsonException
+     * @throws JsonException
      */
     public function createDtoFromResponse(Response $response): EventDataWrapper
     {

@@ -7,6 +7,8 @@ namespace Chronoarc\Marvel\Requests\Comics;
 use Chronoarc\Marvel\Dto\StoryDataWrapper;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use Chronoarc\Marvel\Request;
+use DateTimeInterface;
+use JsonException;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;
 
@@ -22,7 +24,7 @@ class GetComicStories extends Request
 
     /**
      * @param int $comicId The comic ID.
-     * @param ?\DateTimeInterface $modifiedSince Return only stories which have been modified since the specified date.
+     * @param ?DateTimeInterface $modifiedSince Return only stories which have been modified since the specified date.
      * @param ?array $series Return only stories contained the specified series
      * @param ?array $events Return only stories which take place during the specified events
      * @param ?array $creators Return only stories which feature work by the specified creators
@@ -32,15 +34,15 @@ class GetComicStories extends Request
      * @param ?int $offset Skip the specified number of resources.
      */
     public function __construct(
-        protected int                 $comicId,
-        protected ?\DateTimeInterface $modifiedSince = null,
-        protected ?array              $series = null,
-        protected ?array              $events = null,
-        protected ?array              $creators = null,
-        protected ?array              $characters = null,
-        protected ?array              $orderBy = null,
-        protected ?int                $limit = null,
-        protected ?int                $offset = null,
+        protected int                $comicId,
+        protected ?DateTimeInterface $modifiedSince = null,
+        protected ?array             $series = null,
+        protected ?array             $events = null,
+        protected ?array             $creators = null,
+        protected ?array             $characters = null,
+        protected ?array             $orderBy = null,
+        protected ?int               $limit = null,
+        protected ?int               $offset = null,
     )
     {
     }
@@ -56,7 +58,7 @@ class GetComicStories extends Request
      * @param Response $response
      * @return StoryDataWrapper
      * @throws InvalidAttributeTypeException
-     * @throws \JsonException
+     * @throws JsonException
      */
     public function createDtoFromResponse(Response $response): StoryDataWrapper
     {

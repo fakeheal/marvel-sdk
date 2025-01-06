@@ -1,18 +1,17 @@
 <?php
 
 
-
 declare(strict_types=1);
 
 namespace Chronoarc\Marvel\Resource;
 
-use Chronoarc\Marvel\Resource;
-use Chronoarc\Marvel\Requests\Characters\GetCharacters;
-use Chronoarc\Marvel\Requests\Characters\GetCharacterEvents;
 use Chronoarc\Marvel\Requests\Characters\GetCharacter;
+use Chronoarc\Marvel\Requests\Characters\GetCharacterComics;
+use Chronoarc\Marvel\Requests\Characters\GetCharacterEvents;
+use Chronoarc\Marvel\Requests\Characters\GetCharacters;
 use Chronoarc\Marvel\Requests\Characters\GetCharacterSeries;
 use Chronoarc\Marvel\Requests\Characters\GetCharacterStories;
-use Chronoarc\Marvel\Requests\Characters\GetCharacterComics;
+use Chronoarc\Marvel\Resource;
 use DateTimeInterface;
 use Saloon\Http\Response;
 

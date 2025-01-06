@@ -6,5 +6,5 @@ namespace Chronoarc\Marvel\Contracts;
 
 interface JsonDeserializable
 {
-	public static function fromJson(mixed $data): mixed;
+    public static function fromJson(mixed $data): mixed;
 }

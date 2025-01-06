@@ -7,9 +7,7 @@ namespace Chronoarc\Marvel\Requests\Characters;
 use Chronoarc\Marvel\Dto\CharacterDataWrapper;
 use Chronoarc\Marvel\EmptyResponse;
 use Chronoarc\Marvel\Request;
-use Exception;
 use Saloon\Enums\Method;
-use Saloon\Http\Request as Request1;
 use Saloon\Http\Response;
 
 /**

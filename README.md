@@ -117,4 +117,4 @@ already created guides, and track your
 progress towards reading a specific guide.
 
 There's another SDK that uses Comicvine API, which is also part of the ChronoArc project. You can check it
-out [chronoarc/comicvine-sdk](https://github.com/fakeheal/comicvine-sdk).
+out at [chronoarc/comicvine-sdk](https://github.com/fakeheal/comicvine-sdk).

@@ -11,6 +11,6 @@ use Saloon\Traits\Responses\HasResponse;
 
 abstract class Response implements JsonDeserializable, WithResponse
 {
-	use JsonDeserialize;
-	use HasResponse;
+    use JsonDeserialize;
+    use HasResponse;
 }
