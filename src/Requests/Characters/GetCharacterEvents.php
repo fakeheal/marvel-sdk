@@ -20,6 +20,9 @@ use Saloon\Http\Response;
  */
 class GetCharacterEvents extends Request
 {
+    /**
+     * @var Method
+     */
     protected Method $method = Method::GET;
 
     /**
@@ -52,9 +55,12 @@ class GetCharacterEvents extends Request
     }
 
 
+    /**
+     * @return string
+     */
     public function resolveEndpoint(): string
     {
-        return "/characters/{$this->characterId}/events";
+        return "/characters/$this->characterId/events";
     }
 
 
@@ -70,6 +76,9 @@ class GetCharacterEvents extends Request
     }
 
 
+    /**
+     * @return array|string[]
+     */
     public function defaultQuery(): array
     {
         return array_filter([

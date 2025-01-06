@@ -17,45 +17,73 @@ use Saloon\Http\Connector;
  */
 class Marvel extends Connector
 {
+    /**
+     * @param string $publicKey
+     * @param string $privateKey
+     */
     public function __construct(private readonly string $publicKey, private readonly string $privateKey)
     {
     }
 
+    /**
+     * @return string
+     */
     public function resolveBaseUrl(): string
     {
         return 'https://gateway.marvel.com/v1/public';
     }
 
+    /**
+     * @return Characters
+     */
     public function characters(): Characters
     {
         return new Characters($this);
     }
 
+    /**
+     * @return Comics
+     */
     public function comics(): Comics
     {
         return new Comics($this);
     }
 
+    /**
+     * @return Creators
+     */
     public function creators(): Creators
     {
         return new Creators($this);
     }
 
+    /**
+     * @return Events
+     */
     public function events(): Events
     {
         return new Events($this);
     }
 
+    /**
+     * @return Series
+     */
     public function series(): Series
     {
         return new Series($this);
     }
 
+    /**
+     * @return Stories
+     */
     public function stories(): Stories
     {
         return new Stories($this);
     }
 
+    /**
+     * @return array|string[]
+     */
     protected function defaultQuery(): array
     {
         return [

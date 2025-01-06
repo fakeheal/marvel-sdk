@@ -31,7 +31,9 @@ class GetComic extends Request
     {
     }
 
-
+    /**
+     * @return string
+     */
     public function resolveEndpoint(): string
     {
         return "/comics/$this->comicId";

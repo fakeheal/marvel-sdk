@@ -28,6 +28,9 @@ class Comics extends Resource
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
      * @param ?int $offset Skip the specified number of resources.
+     * @return Response
+     * @throws FatalRequestException
+     * @throws RequestException
      */
     public function getComicStories(
         int                $comicId,
@@ -56,6 +59,9 @@ class Comics extends Resource
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
      * @param ?int $offset Skip the specified number of resources in the result set.
+     * @return Response
+     * @throws FatalRequestException
+     * @throws RequestException
      */
     public function getComicCharacters(
         int                $comicId,
@@ -103,6 +109,9 @@ class Comics extends Resource
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
      * @param ?int $offset Skip the specified number of resources in the result set.
+     * @return Response
+     * @throws FatalRequestException
+     * @throws RequestException
      */
     public function getComicCreators(
         int                $comicId,
@@ -155,6 +164,9 @@ class Comics extends Resource
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
      * @param ?int $offset Skip the specified number of resources in the result set.
+     * @return Response
+     * @throws FatalRequestException
+     * @throws RequestException
      */
     public function search(
         ?string             $format = null,
@@ -202,6 +214,9 @@ class Comics extends Resource
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
      * @param ?int $offset Skip the specified number of resources in the result set.
+     * @return Response
+     * @throws FatalRequestException
+     * @throws RequestException
      */
     public function getComicEvents(
         int                $comicId,

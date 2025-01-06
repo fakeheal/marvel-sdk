@@ -85,6 +85,9 @@ class GetCharacterComics extends Request
     }
 
 
+    /**
+     * @return string
+     */
     public function resolveEndpoint(): string
     {
         return "/characters/{$this->characterId}/comics";
@@ -103,6 +106,9 @@ class GetCharacterComics extends Request
     }
 
 
+    /**
+     * @return array|string[]
+     */
     public function defaultQuery(): array
     {
         return array_filter([

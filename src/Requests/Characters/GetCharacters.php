@@ -49,6 +49,9 @@ class GetCharacters extends Request
     {
     }
 
+    /**
+     * @return string
+     */
     public function resolveEndpoint(): string
     {
         return "/characters";
@@ -64,7 +67,9 @@ class GetCharacters extends Request
         return CharacterDataWrapper::fromJson($response->json());
     }
 
-
+    /**
+     * @return array|string[]
+     */
     public function defaultQuery(): array
     {
         return array_filter([

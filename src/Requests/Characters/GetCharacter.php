@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Chronoarc\Marvel\Requests\Characters;
 
 use Chronoarc\Marvel\Dto\CharacterDataWrapper;
-use Chronoarc\Marvel\EmptyResponse;
+use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use Chronoarc\Marvel\Request;
+use JsonException;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;
 
@@ -20,7 +21,6 @@ class GetCharacter extends Request
 {
     protected Method $method = Method::GET;
 
-
     /**
      * @param int $characterId A single character id.
      */
@@ -30,15 +30,19 @@ class GetCharacter extends Request
     {
     }
 
-
+    /**
+     * @return string
+     */
     public function resolveEndpoint(): string
     {
         return "/characters/{$this->characterId}";
     }
 
-
     /**
+     * @param Response $response
      * @return CharacterDataWrapper
+     * @throws InvalidAttributeTypeException
+     * @throws JsonException
      */
     public function createDtoFromResponse(Response $response): CharacterDataWrapper
     {

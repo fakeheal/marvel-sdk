@@ -52,12 +52,12 @@ class GetComics extends Request
      * @param ?int $offset Skip the specified number of resources in the result set.
      */
     public function __construct(
-        protected ?string             $format = null,
-        protected ?string             $formatType = null,
-        protected ?bool               $noVariants = null,
-        protected ?string             $dateDescriptor = null,
-        protected ?array              $dateRange = null,
-        protected ?string             $title = null,
+        protected ?string            $format = null,
+        protected ?string            $formatType = null,
+        protected ?bool              $noVariants = null,
+        protected ?string            $dateDescriptor = null,
+        protected ?array             $dateRange = null,
+        protected ?string            $title = null,
         protected ?string            $titleStartsWith = null,
         protected ?int               $startYear = null,
         protected ?int               $issueNumber = null,
@@ -83,12 +83,13 @@ class GetComics extends Request
     {
     }
 
-
+    /**
+     * @return string
+     */
     public function resolveEndpoint(): string
     {
         return "/comics";
     }
-
 
     /**
      * @param Response $response
@@ -101,7 +102,9 @@ class GetComics extends Request
         return ComicDataWrapper::fromJson($response->json());
     }
 
-
+    /**
+     * @return array|string[]
+     */
     public function defaultQuery(): array
     {
         return array_filter([
@@ -122,11 +125,11 @@ class GetComics extends Request
             'issn' => $this->issn,
             'hasDigitalIssue' => $this->hasDigitalIssue,
             'modifiedSince' => $this->modifiedSince?->format('Y-m-d\TH:i:sP'),
-            'creators' => $this->creators ? implode(',', $this->creators) : null,
-            'characters' => $this->characters ? implode(',', $this->characters) : null,
-            'series' => $this->series ? implode(',', $this->series) : null,
-            'events' => $this->events ? implode(',', $this->events) : null,
-            'stories' => $this->stories ? implode(',', $this->stories) : null,
+            'creators' => $this->toCsv($this->creators),
+            'characters' => $this->toCsv($this->characters),
+            'series' => $this->toCsv($this->series),
+            'events' => $this->toCsv($this->events),
+            'stories' => $this->toCsv($this->stories),
             'sharedAppearances' => $this->sharedAppearances,
             'collaborators' => $this->collaborators,
             'orderBy' => $this->orderBy,

@@ -13,6 +13,8 @@ use Chronoarc\Marvel\Requests\Characters\GetCharacterSeries;
 use Chronoarc\Marvel\Requests\Characters\GetCharacterStories;
 use Chronoarc\Marvel\Resource;
 use DateTimeInterface;
+use Saloon\Exceptions\Request\FatalRequestException;
+use Saloon\Exceptions\Request\RequestException;
 use Saloon\Http\Response;
 
 class Characters extends Resource
@@ -32,6 +34,9 @@ class Characters extends Resource
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
      * @param ?int $offset Skip the specified number of resources in the result set.
+     * @return Response
+     * @throws FatalRequestException
+     * @throws RequestException
      */
     public function getCharacterSeries(
         int                $characterId,
@@ -82,6 +87,9 @@ class Characters extends Resource
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
      * @param ?int $offset Skip the specified number of resources in the result set.
+     * @return Response
+     * @throws FatalRequestException
+     * @throws RequestException
      */
     public function getCharacterComics(
         int                $characterId,
@@ -129,6 +137,9 @@ class Characters extends Resource
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
      * @param ?int $offset Skip the specified number of resources in the result set.
+     * @return Response
+     * @throws FatalRequestException
+     * @throws RequestException
      */
     public function getCharacterEvents(
         int                $characterId,
@@ -150,6 +161,9 @@ class Characters extends Resource
 
     /**
      * @param int $characterId A single character id.
+     * @return Response
+     * @throws FatalRequestException
+     * @throws RequestException
      */
     public function getCharacter(int $characterId): Response
     {
@@ -168,6 +182,9 @@ class Characters extends Resource
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
      * @param ?int $offset Skip the specified number of resources in the result set.
+     * @return Response
+     * @throws FatalRequestException
+     * @throws RequestException
      */
     public function search(
         ?string            $name = null,
@@ -196,6 +213,9 @@ class Characters extends Resource
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
      * @param ?int $offset Skip the specified number of resources in the result set.
+     * @return Response
+     * @throws FatalRequestException
+     * @throws RequestException
      */
     public function getCharacterStories(
         int                $characterId,

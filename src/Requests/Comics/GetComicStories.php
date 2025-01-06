@@ -47,7 +47,9 @@ class GetComicStories extends Request
     {
     }
 
-
+    /**
+     * @return string
+     */
     public function resolveEndpoint(): string
     {
         return "/comics/$this->comicId/stories";
@@ -70,10 +72,10 @@ class GetComicStories extends Request
     {
         return array_filter([
             'modifiedSince' => $this->modifiedSince?->format('Y-m-d\TH:i:sP'),
-            'series' => $this->series ? implode(',', $this->series) : null,
-            'events' => $this->events ? implode(',', $this->events) : null,
-            'creators' => $this->creators ? implode(',', $this->creators) : null,
-            'characters' => $this->characters ? implode(',', $this->characters) : null,
+            'series' => $this->toCsv($this->series),
+            'events' => $this->toCsv($this->events),
+            'creators' => $this->toCsv($this->creators),
+            'characters' => $this->toCsv($this->characters),
             'orderBy' => $this->orderBy,
             'limit' => $this->limit,
             'offset' => $this->offset,

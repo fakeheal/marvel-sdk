@@ -1,6 +1,5 @@
 <?php
 
-
 declare(strict_types=1);
 
 namespace Chronoarc\Marvel\Requests\Comics;
@@ -70,16 +69,19 @@ class GetComicEvents extends Request
         return EventDataWrapper::fromJson($response->json());
     }
 
+    /**
+     * @return array|string[]
+     */
     public function defaultQuery(): array
     {
         return array_filter([
             'name' => $this->name,
             'nameStartsWith' => $this->nameStartsWith,
             'modifiedSince' => $this->modifiedSince?->format('Y-m-d\TH:i:sP'),
-            'creators' => $this->creators ? implode(',', $this->creators) : null,
-            'characters' => $this->characters ? implode(',', $this->characters) : null,
-            'series' => $this->series ? implode(',', $this->series) : null,
-            'stories' => $this->stories,
+            'creators' => $this->toCsv($this->creators),
+            'characters' => $this->toCsv($this->characters),
+            'series' => $this->toCsv($this->series),
+            'stories' => $this->toCsv($this->stories),
             'orderBy' => $this->orderBy,
             'limit' => $this->limit,
             'offset' => $this->offset,

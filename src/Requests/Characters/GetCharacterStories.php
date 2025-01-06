@@ -48,7 +48,9 @@ class GetCharacterStories extends Request
     {
     }
 
-
+    /**
+     * @return string
+     */
     public function resolveEndpoint(): string
     {
         return "/characters/$this->characterId/stories";
@@ -65,6 +67,9 @@ class GetCharacterStories extends Request
         return StoryDataWrapper::fromJson($response->json());
     }
 
+    /**
+     * @return array|string[]
+     */
     public function defaultQuery(): array
     {
         return array_filter([

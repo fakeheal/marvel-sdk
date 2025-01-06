@@ -23,7 +23,6 @@ class GetComicCharacters extends Request
 {
     protected Method $method = Method::GET;
 
-
     /**
      * @param int $comicId The comic id.
      * @param ?string $name Return only characters matching the specified full character name (e.g. Spider-Man).
@@ -69,16 +68,18 @@ class GetComicCharacters extends Request
         return CharacterDataWrapper::fromJson($response->json());
     }
 
-
+    /**
+     * @return array|string[]
+     */
     public function defaultQuery(): array
     {
         return array_filter([
             'name' => $this->name,
             'nameStartsWith' => $this->nameStartsWith,
             'modifiedSince' => $this->modifiedSince?->format('Y-m-d\TH:i:sP'),
-            'series' => $this->series ? implode(',', $this->series) : null,
-            'events' => $this->events ? implode(',', $this->events) : null,
-            'stories' => $this->stories ? implode(',', $this->stories) : null,
+            'series' => $this->toCsv($this->series),
+            'events' => $this->toCsv($this->events),
+            'stories' => $this->toCsv($this->stories),
             'orderBy' => $this->orderBy,
             'limit' => $this->limit,
             'offset' => $this->offset,

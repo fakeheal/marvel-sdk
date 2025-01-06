@@ -60,6 +60,9 @@ class GetCharacterSeries extends Request
     }
 
 
+    /**
+     * @return string
+     */
     public function resolveEndpoint(): string
     {
         return "/characters/{$this->characterId}/series";
@@ -78,6 +81,9 @@ class GetCharacterSeries extends Request
     }
 
 
+    /**
+     * @return array|string[]
+     */
     public function defaultQuery(): array
     {
         return array_filter([
