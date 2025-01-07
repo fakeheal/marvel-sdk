@@ -12,6 +12,7 @@ library.
 
 - [ ] Use enums in requests: `Format`, `DateRange`, `OrderBy` (maybe split `OrderBy`
   into `CharacterOrderBy`, `ComicOrderBy`, etc.)
+- Url types to be also enums
 - [ ] Tests
 - [ ] Submit to Packagist
 
@@ -35,13 +36,13 @@ library.
 | /creators/{creatorId}/events      |     ✅      |
 | /creators/{creatorId}/series      |     ✅      |
 | /creators/{creatorId}/stories     |     ✅      |
-| /events                           |     ❌      |
-| /events/{eventId}                 |     ❌      |
-| /events/{eventId}/characters      |     ❌      |
-| /events/{eventId}/comics          |     ❌      |
-| /events/{eventId}/creators        |     ❌      |
-| /events/{eventId}/series          |     ❌      |
-| /events/{eventId}/stories         |     ❌      |
+| /events                           |     ✅      |
+| /events/{eventId}                 |     ✅      |
+| /events/{eventId}/characters      |     ✅      |
+| /events/{eventId}/comics          |     ✅      |
+| /events/{eventId}/creators        |     ✅      |
+| /events/{eventId}/series          |     ✅      |
+| /events/{eventId}/stories         |     ✅      |
 | /series                           |     ❌      |
 | /series/{seriesId}                |     ❌      |
 | /series/{seriesId}/characters     |     ❌      |
