@@ -1,12 +1,12 @@
 # 🦸 Marvel PHP SDK
 
+[![Tests](https://github.com/fakeheal/marvel-sdk/actions/workflows/php.yml/badge.svg)](https://github.com/fakeheal/marvel-sdk/actions/workflows/php.yml)
+![Packagist Version](https://img.shields.io/packagist/v/chronoarc/marvel)
+![Packagist Downloads](https://img.shields.io/packagist/dt/chronoarc/marvel)
+
 Welcome to the **Marvel PHP SDK**, a lightweight and easy-to-use SDK designed to interact with
 the [Marvel API](https://developer.marvel.com/), built on top of the robust [Saloon](https://docs.saloon.dev)
 library.
-
-> [!WARNING]
-> This project is a work in progress. Currently, it supports only the endpoints I need for another app I'm building.
-> However, the SDK is designed to be extensible, making it easy to add support for additional endpoints.
 
 ## 🚧 Progress
 
