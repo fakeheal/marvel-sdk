@@ -11,16 +11,15 @@ library.
 ## 🚧 Progress
 
 - [ ] Use enums for query parameters:
-    - [ ] CharacterOrderBy
-    - [x] ComicOrderBy
-    - [ ] CreatorOrderBy
-    - [ ] EventOrderBy
-    - [ ] SeriesOrderBy
-    - [ ] StoryOrderBy
-    - [ ] DateDescriptor
-    - [x] ComicFormat
-    - [x] ComicFormatType
-- Url types to be also enums (where can I see all types?)
+    - [x] Comic:
+        - `OrderBy` in query params
+        - `Format` in query params and dto
+        - `FormatType` in query params
+    - [ ] Character
+    - [ ] Events
+    - [ ] Stories
+    - [ ] Creators
+    - [ ] Series
 - [ ] Tests
 - [ ] Submit to Packagist
 
@@ -65,6 +64,26 @@ $characterStories = $marvel->characters()->getCharacterStories($superhero['id'])
 $characterStories->dto(); // Chronoarc\Marvel\Dto\StoryDataWrapper
 ```
 
+### Advanced
+
+Additionally, you can use the provided enums for query parameters:
+
+```php  
+use Chronoarc\Marvel\Enums\Comic\OrderBy;
+use Chronoarc\Marvel\Enums\Comic\Format;
+
+...
+
+/** @var ComicDataWrapper $comics */
+$comics = $this->connector->comics()->search(
+  format: Format::comic,
+  orderBy: [OrderBy::titleAsc],
+)->dto();
+```
+
+**Note**: DTOs also have enums for their properties, so you can use them to access the data in a more predictable way.
+
+```php
 ## 🤝 Contributions Welcome
 
 Your feedback and contributions are highly appreciated! Whether it’s submitting an issue, suggesting improvements, or
