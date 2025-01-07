@@ -30,7 +30,7 @@ library.
 You can install the SDK via Composer:
 
 ```bash
-composer require chronoarc/marvel-sdk
+composer require chronoarc/marvel
 ```
 
 ### Usage
