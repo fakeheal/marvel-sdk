@@ -33,7 +33,7 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Run test suite
-        with:
+        run: composer run-script test
+        env:
           MARVEL_API_PUBLIC_KEY: ${{ secrets.MARVEL_API_PUBLIC_KEY }}
           MARVEL_API_PRIVATE_KEY: ${{ secrets.MARVEL_API_PRIVATE_KEY }}
-        run: composer run-script test
