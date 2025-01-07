@@ -50,13 +50,13 @@ library.
 | /series/{seriesId}/creators       |     ✅      |
 | /series/{seriesId}/events         |     ✅      |
 | /series/{seriesId}/stories        |     ✅      |
-| /stories                          |     ❌      |
-| /stories/{storyId}                |     ❌      |
-| /stories/{storyId}/characters     |     ❌      |
-| /stories/{storyId}/comics         |     ❌      |
-| /stories/{storyId}/creators       |     ❌      |
-| /stories/{storyId}/events         |     ❌      |
-| /stories/{storyId}/series         |     ❌      |
+| /stories                          |     ✅      |
+| /stories/{storyId}                |     ✅      |
+| /stories/{storyId}/characters     |     ✅      |
+| /stories/{storyId}/comics         |     ✅      |
+| /stories/{storyId}/creators       |     ✅      |
+| /stories/{storyId}/events         |     ✅      |
+| /stories/{storyId}/series         |     ✅      |
 
 ## 🚀 Getting Started
 
