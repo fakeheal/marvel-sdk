@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Chronoarc\Marvel\Traits;
 
+use BackedEnum;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use DateTime;
 use ReflectionClass;
@@ -11,6 +12,7 @@ use ReflectionClass;
 trait JsonDeserialize
 {
     use HasComplexArrayTypes;
+    use HasEnumerableAttributes;
 
     protected static string $datetimeFormat = 'Y-m-d\TH:i:sP';
 
@@ -39,6 +41,11 @@ trait JsonDeserialize
             if ($type === 'array') {
                 $type = static::getArrayType($name);
             }
+
+            if ($type === 'string') {
+                $type = static::getEnumType($name);
+            }
+
 
             $attributeTypes[$name] = $type;
         }
@@ -87,6 +94,8 @@ trait JsonDeserialize
                 throw new InvalidAttributeTypeException("Class `$type` does not exist");
             } elseif ($type === DateTime::class) {
                 return DateTime::createFromFormat(static::$datetimeFormat, $value);
+            } else if (enum_exists($type)) {
+                return $type::from($value);
             }
 
             return $type::fromJson($value);

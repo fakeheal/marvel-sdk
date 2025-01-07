@@ -17,7 +17,7 @@ final class ComicDataContainer extends Dto
      * @param ?int $limit
      * @param ?int $total
      * @param ?int $count
-     * @param Comic[]|null $results
+     * @param ?Comic[] $results
      */
     public function __construct(
         public ?int   $offset = null,

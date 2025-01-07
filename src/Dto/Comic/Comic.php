@@ -14,6 +14,7 @@ use Chronoarc\Marvel\Dto\Series\SeriesSummary;
 use Chronoarc\Marvel\Dto\Story\StoryList;
 use Chronoarc\Marvel\Dto\TextObject;
 use Chronoarc\Marvel\Dto\Url;
+use Chronoarc\Marvel\Enums\Comic\Format;
 
 final class Comic extends Dto
 {
@@ -30,6 +31,10 @@ final class Comic extends Dto
         'images' => Image::class,
     ];
 
+    protected static array $enumTypes = [
+        'format' => Format::class,
+    ];
+
 
     /**
      * @param ?int $id
@@ -44,7 +49,7 @@ final class Comic extends Dto
      * @param ?string $diamondCode The Diamond code for the comic.
      * @param ?string $ean The EAN barcode for the comic.
      * @param ?string $issn The ISSN barcode for the comic.
-     * @param ?string $format The publication format of the comic e.g. comic, hardcover, trade paperback.
+     * @param Format|null $format The publication format of the comic e.g. comic, hardcover, trade paperback.
      * @param ?int $pageCount
      * @param TextObject[]|null $textObjects
      * @param ?string $resourceUri The canonical URL identifier for this resource.
@@ -75,7 +80,7 @@ final class Comic extends Dto
         public ?string        $diamondCode = null,
         public ?string        $ean = null,
         public ?string        $issn = null,
-        public ?string        $format = null,
+        public ?Format        $format = null,
         public ?int           $pageCount = null,
         public ?array         $textObjects = null,
         public ?string        $resourceUri = null,

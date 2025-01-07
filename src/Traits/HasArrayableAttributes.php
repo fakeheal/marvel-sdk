@@ -11,6 +11,7 @@ use ReflectionParameter;
 
 trait HasArrayableAttributes
 {
+    use HasEnumerableAttributes;
     use HasComplexArrayTypes;
 
     protected static string $datetimeFormat = 'Y-m-d\\TH:i:sP';
@@ -101,6 +102,7 @@ trait HasArrayableAttributes
      * @param mixed $value
      * @param array $type
      * @return mixed
+     * @throws InvalidAttributeTypeException
      */
     private function handleArrayType(mixed $value, array $type): mixed
     {
@@ -142,6 +144,10 @@ trait HasArrayableAttributes
 
             if ($type === 'array') {
                 $type = static::getArrayType($name);
+            }
+
+            if ($type === 'string') {
+                $type = static::getEnumType($name);
             }
 
             $carry[$name] = $type;

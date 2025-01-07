@@ -4,12 +4,12 @@ namespace Chronoarc\Marvel\Enums\Comic;
 
 enum Format: string
 {
-    case comic = "comic";
-    case magazine = "magazine";
-    case tradePaperback = "trade paperback";
-    case hardcover = "hardcover";
-    case digest = "digest";
-    case graphicNovel = "graphic novel";
-    case digitalComic = "digital comic";
-    case infiniteComic = "infinite comic";
+    case comic = "Comic";
+    case magazine = "Magazine";
+    case tradePaperback = "Trade Paperback";
+    case hardcover = "Hardcover";
+    case digest = "Digest";
+    case graphicNovel = "Graphic Novel";
+    case digitalComic = "Digital Comic";
+    case infiniteComic = "Infinite Comic";
 }
