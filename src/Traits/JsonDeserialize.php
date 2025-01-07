@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Chronoarc\Marvel\Traits;
 
-use BackedEnum;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use DateTime;
 use ReflectionClass;

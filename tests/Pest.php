@@ -29,8 +29,6 @@ use Saloon\Config;
 Config::preventStrayRequests();
 
 uses(Tests\TestCase::class)->beforeEach(function () {
-    $_ENV['MARVEL_API_PUBLIC_KEY'] = 'random-key';
-    $_ENV['MARVEL_API_PRIVATE_KEY'] = 'random-key';
 })->in('Unit');
 /*
 |--------------------------------------------------------------------------

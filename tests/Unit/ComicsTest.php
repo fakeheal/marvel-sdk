@@ -13,16 +13,21 @@ beforeEach(function () {
         GetComics::class => MockResponse::fixture('search-comics')
     ]);
 
-    $this->connector = new Marvel($_ENV['MARVEL_API_PUBLIC_KEY'], $_ENV['MARVEL_API_PRIVATE_KEY']);
+    $publicKey = getenv('MARVEL_API_PUBLIC_KEY');
+    $privateKey = getenv('MARVEL_API_PRIVATE_KEY');
+
+    $this->connector = new Marvel($publicKey, $privateKey);
     $this->connector->withMockClient($this->mockClient);
 });
 
 test('it can search for comics', function () {
-    /** @var ComicDataWrapper $comics */
-    $comics = $this->connector->comics()->search(
+    $result = $this->connector->comics()->search(
         format: Format::comic,
         orderBy: [OrderBy::titleAsc],
-    )->dto();
+    );
+
+    /** @var ComicDataWrapper $comics */
+    $comics = $result->dto();
 
     expect($comics->data->results)->toHaveCount(20);
 });
