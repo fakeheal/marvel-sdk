@@ -1,6 +1,5 @@
 {
   "name": "chronoarc/marvel",
-  "version": "0.0.1",
   "description": "A PHP wrapper for Marvel's API",
   "type": "library",
   "license": "MIT",
