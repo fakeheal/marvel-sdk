@@ -10,9 +10,17 @@ library.
 
 ## 🚧 Progress
 
-- [ ] Use enums in requests: `Format`, `DateRange`, `OrderBy` (maybe split `OrderBy`
-  into `CharacterOrderBy`, `ComicOrderBy`, etc.)
-- Url types to be also enums
+- [ ] Use enums for query parameters:
+    - [ ] CharacterOrderBy
+    - [x] ComicOrderBy
+    - [ ] CreatorOrderBy
+    - [ ] EventOrderBy
+    - [ ] SeriesOrderBy
+    - [ ] StoryOrderBy
+    - [ ] DateDescriptor
+    - [x] ComicFormat
+    - [x] ComicFormatType
+- Url types to be also enums (where can I see all types?)
 - [ ] Tests
 - [ ] Submit to Packagist
 

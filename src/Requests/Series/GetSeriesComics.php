@@ -6,10 +6,12 @@ declare(strict_types=1);
 namespace Chronoarc\Marvel\Requests\Series;
 
 use Chronoarc\Marvel\Dto\ComicDataWrapper;
+use Chronoarc\Marvel\Enums\Comic\Format;
+use Chronoarc\Marvel\Enums\Comic\FormatType;
+use Chronoarc\Marvel\Enums\Comic\OrderBy;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use Chronoarc\Marvel\Request;
 use DateTimeInterface;
-use Exception;
 use JsonException;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;
@@ -27,8 +29,8 @@ class GetSeriesComics extends Request
 
     /**
      * @param int $seriesId The series ID.
-     * @param ?string $format Filter by the issue format (e.g. comic, digital comic, hardcover).
-     * @param ?string $formatType Filter by the issue format type (comic or collection).
+     * @param ?Format $format Filter by the issue format (e.g. comic, digital comic, hardcover).
+     * @param ?FormatType $formatType Filter by the issue format type (comic or collection).
      * @param ?array $noVariants Exclude variant comics from the result set.
      * @param ?array $dateDescriptor Return comics within a predefined date range.
      * @param ?array $dateRange Return comics within a predefined date range.  Dates must be specified as date1,date2 (e.g. 2013-01-01,2013-01-02).  Dates are preferably formatted as YYYY-MM-DD but may be sent as any common date format.
@@ -50,14 +52,14 @@ class GetSeriesComics extends Request
      * @param ?array $stories Return only comics which contain the specified stories.
      * @param ?array $sharedAppearances Return only comics in which the specified characters appear together (for example in which BOTH Spider-Man and Wolverine appear).
      * @param ?array $collaborators Return only comics in which the specified creators worked together (for example in which BOTH Stan Lee and Jack Kirby did work).
-     * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
+     * @param ?OrderBy[] $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
      * @param ?int $offset Skip the specified number of resources in the result set.
      */
     public function __construct(
         protected int                $seriesId,
-        protected ?string            $format = null,
-        protected ?string            $formatType = null,
+        protected ?Format            $format = null,
+        protected ?FormatType        $formatType = null,
         protected ?array             $noVariants = null,
         protected ?array             $dateDescriptor = null,
         protected ?array             $dateRange = null,
@@ -112,8 +114,8 @@ class GetSeriesComics extends Request
     public function defaultQuery(): array
     {
         return array_filter([
-            'format' => $this->format,
-            'formatType' => $this->formatType,
+            'format' => $this->format?->value,
+            'formatType' => $this->formatType?->value,
             'noVariants' => $this->noVariants,
             'dateDescriptor' => $this->dateDescriptor,
             'dateRange' => $this->dateRange,
@@ -135,7 +137,7 @@ class GetSeriesComics extends Request
             'stories' => $this->toCsv($this->stories),
             'sharedAppearances' => $this->sharedAppearances,
             'collaborators' => $this->collaborators,
-            'orderBy' => $this->orderBy,
+            'orderBy' => $this->enumToCsv($this->orderBy),
             'limit' => $this->limit,
             'offset' => $this->offset,
         ]);

@@ -6,6 +6,8 @@ declare(strict_types=1);
 namespace Chronoarc\Marvel\Requests\Stories;
 
 use Chronoarc\Marvel\Dto\ComicDataWrapper;
+use Chronoarc\Marvel\Enums\Comic\Format;
+use Chronoarc\Marvel\Enums\Comic\FormatType;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use Chronoarc\Marvel\Request;
 use DateTimeInterface;
@@ -26,8 +28,8 @@ class GetStoryComics extends Request
 
     /**
      * @param int $storyId The story ID.
-     * @param ?string $format Filter by the issue format (e.g. comic, digital comic, hardcover).
-     * @param ?string $formatType Filter by the issue format type (comic or collection).
+     * @param ?Format $format Filter by the issue format (e.g. comic, digital comic, hardcover).
+     * @param ?FormatType $formatType Filter by the issue format type (comic or collection).
      * @param ?array $noVariants Exclude variant comics from the result set.
      * @param ?array $dateDescriptor Return comics within a predefined date range.
      * @param ?array $dateRange Return comics within a predefined date range.  Dates must be specified as date1,date2 (e.g. 2013-01-01,2013-01-02).  Dates are preferably formatted as YYYY-MM-DD but may be sent as any common date format.
@@ -55,8 +57,8 @@ class GetStoryComics extends Request
      */
     public function __construct(
         protected int                $storyId,
-        protected ?string            $format = null,
-        protected ?string            $formatType = null,
+        protected ?Format            $format = null,
+        protected ?FormatType        $formatType = null,
         protected ?array             $noVariants = null,
         protected ?array             $dateDescriptor = null,
         protected ?array             $dateRange = null,
@@ -111,8 +113,8 @@ class GetStoryComics extends Request
     public function defaultQuery(): array
     {
         return array_filter([
-            'format' => $this->format,
-            'formatType' => $this->formatType,
+            'format' => $this->format?->value,
+            'formatType' => $this->formatType?->value,
             'noVariants' => $this->noVariants,
             'dateDescriptor' => $this->dateDescriptor,
             'dateRange' => $this->dateRange,
@@ -134,7 +136,7 @@ class GetStoryComics extends Request
             'events' => $this->toCsv($this->events),
             'sharedAppearances' => $this->sharedAppearances,
             'collaborators' => $this->collaborators,
-            'orderBy' => $this->orderBy,
+            'orderBy' => $this->enumToCsv($this->orderBy),
             'limit' => $this->limit,
             'offset' => $this->offset,
         ]);

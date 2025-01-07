@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Chronoarc\Marvel\Resource;
 
+use Chronoarc\Marvel\Enums\Comic\Format;
+use Chronoarc\Marvel\Enums\Comic\FormatType;
+use Chronoarc\Marvel\Enums\Comic\OrderBy;
 use Chronoarc\Marvel\Enums\SeriesType;
 use Chronoarc\Marvel\Requests\Creators\GetCreator;
 use Chronoarc\Marvel\Requests\Creators\GetCreatorComics;
@@ -105,8 +108,8 @@ class Creators extends Resource
 
     /**
      * @param int $creatorId The creator ID.
-     * @param ?string $format Filter by the issue format (e.g. comic, digital comic, hardcover).
-     * @param ?string $formatType Filter by the issue format type (comic or collection).
+     * @param ?Format $format Filter by the issue format (e.g. comic, digital comic, hardcover).
+     * @param ?FormatType $formatType Filter by the issue format type (comic or collection).
      * @param ?bool $noVariants Exclude variant comics from the result set.
      * @param ?string $dateDescriptor Return comics within a predefined date range.
      * @param ?array $dateRange Return comics within a predefined date range.  Dates must be specified as date1,date2 (e.g. 2013-01-01,2013-01-02).  Dates are preferably formatted as YYYY-MM-DD but may be sent as any common date format.
@@ -128,14 +131,14 @@ class Creators extends Resource
      * @param ?array $stories Return only comics which contain the specified stories.
      * @param ?array $sharedAppearances Return only comics in which the specified characters appear together (for example in which BOTH Spider-Man and Wolverine appear).
      * @param ?array $collaborators Return only comics in which the specified creators worked together (for example in which BOTH Stan Lee and Jack Kirby did work).
-     * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
+     * @param ?OrderBy[] $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
      * @param ?int $offset Skip the specified number of resources in the result set.
      */
     public function getCreatorComics(
         int                $creatorId,
-        ?string            $format = null,
-        ?string            $formatType = null,
+        ?Format            $format = null,
+        ?FormatType        $formatType = null,
         ?bool              $noVariants = null,
         ?string            $dateDescriptor = null,
         ?array             $dateRange = null,
