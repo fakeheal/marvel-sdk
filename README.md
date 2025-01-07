@@ -83,7 +83,6 @@ $comics = $this->connector->comics()->search(
 
 **Note**: DTOs also have enums for their properties, so you can use them to access the data in a more predictable way.
 
-```php
 ## 🤝 Contributions Welcome
 
 Your feedback and contributions are highly appreciated! Whether it’s submitting an issue, suggesting improvements, or
