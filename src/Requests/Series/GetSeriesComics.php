@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace Chronoarc\Marvel\Requests\Series;
 
-use Chronoarc\Marvel\Dto\ComicDataWrapper;
+use Chronoarc\Marvel\Dto\Comic\ComicDataWrapper;
 use Chronoarc\Marvel\Enums\Comic\Format;
 use Chronoarc\Marvel\Enums\Comic\FormatType;
 use Chronoarc\Marvel\Enums\Comic\OrderBy;

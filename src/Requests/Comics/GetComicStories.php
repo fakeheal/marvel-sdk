@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Chronoarc\Marvel\Requests\Comics;
 
-use Chronoarc\Marvel\Dto\StoryDataWrapper;
+use Chronoarc\Marvel\Dto\Story\StoryDataWrapper;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use Chronoarc\Marvel\Request;
 use DateTimeInterface;

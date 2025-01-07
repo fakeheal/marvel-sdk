@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace Chronoarc\Marvel\Requests\Events;
 
-use Chronoarc\Marvel\Dto\SeriesDataWrapper;
+use Chronoarc\Marvel\Dto\Series\SeriesDataWrapper;
 use Chronoarc\Marvel\EmptyResponse;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use Chronoarc\Marvel\Request;

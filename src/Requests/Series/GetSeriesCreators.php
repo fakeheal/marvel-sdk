@@ -5,11 +5,10 @@ declare(strict_types=1);
 
 namespace Chronoarc\Marvel\Requests\Series;
 
-use Chronoarc\Marvel\Dto\CreatorDataWrapper;
+use Chronoarc\Marvel\Dto\Creator\CreatorDataWrapper;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use Chronoarc\Marvel\Request;
 use DateTimeInterface;
-use Exception;
 use JsonException;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;

@@ -5,7 +5,7 @@ declare(strict_types=1);
 
 namespace Chronoarc\Marvel\Requests\Series;
 
-use Chronoarc\Marvel\Dto\CharacterDataWrapper;
+use Chronoarc\Marvel\Dto\Character\CharacterDataWrapper;
 use Chronoarc\Marvel\Request;
 use DateTimeInterface;
 use Saloon\Enums\Method;

@@ -24,48 +24,6 @@ library.
 - [ ] Tests
 - [ ] Submit to Packagist
 
-| **Endpoint**                      | **Status** |
-|-----------------------------------|:----------:|
-| /characters                       |     ✅      |
-| /characters/{characterId}         |     ✅      |
-| /characters/{characterId}/comics  |     ✅      |
-| /characters/{characterId}/events  |     ✅      |
-| /characters/{characterId}/series  |     ✅      |
-| /characters/{characterId}/stories |     ✅      |
-| /comics                           |     ✅      |
-| /comics/{comicId}                 |     ✅      |
-| /comics/{comicId}/characters      |     ✅      |
-| /comics/{comicId}/creators        |     ✅      |
-| /comics/{comicId}/events          |     ✅      |
-| /comics/{comicId}/stories         |     ✅      |
-| /creators                         |     ✅      |
-| /creators/{creatorId}             |     ✅      |
-| /creators/{creatorId}/comics      |     ✅      |
-| /creators/{creatorId}/events      |     ✅      |
-| /creators/{creatorId}/series      |     ✅      |
-| /creators/{creatorId}/stories     |     ✅      |
-| /events                           |     ✅      |
-| /events/{eventId}                 |     ✅      |
-| /events/{eventId}/characters      |     ✅      |
-| /events/{eventId}/comics          |     ✅      |
-| /events/{eventId}/creators        |     ✅      |
-| /events/{eventId}/series          |     ✅      |
-| /events/{eventId}/stories         |     ✅      |
-| /series                           |     ✅      |
-| /series/{seriesId}                |     ✅      |
-| /series/{seriesId}/characters     |     ✅      |
-| /series/{seriesId}/comics         |     ✅      |
-| /series/{seriesId}/creators       |     ✅      |
-| /series/{seriesId}/events         |     ✅      |
-| /series/{seriesId}/stories        |     ✅      |
-| /stories                          |     ✅      |
-| /stories/{storyId}                |     ✅      |
-| /stories/{storyId}/characters     |     ✅      |
-| /stories/{storyId}/comics         |     ✅      |
-| /stories/{storyId}/creators       |     ✅      |
-| /stories/{storyId}/events         |     ✅      |
-| /stories/{storyId}/series         |     ✅      |
-
 ## 🚀 Getting Started
 
 ### Installation
