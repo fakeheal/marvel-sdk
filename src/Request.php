@@ -28,6 +28,10 @@ abstract class Request extends SaloonRequest
      */
     protected function enumToCsv(?array $array): ?string
     {
+        if (!$array) {
+            return null;
+        }
+        
         return $this->toCsv(array_map(fn(BackedEnum $enum) => $enum->value, $array));
     }
 }
