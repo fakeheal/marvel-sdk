@@ -20,6 +20,7 @@ library.
     - [ ] Stories
     - [ ] Creators
     - [ ] Series
+- Convert all dates to `DateTime` objects
 - [ ] Tests
 - [ ] Submit to Packagist
 

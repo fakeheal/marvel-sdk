@@ -118,7 +118,7 @@ class GetSeriesComics extends Request
             'formatType' => $this->formatType?->value,
             'noVariants' => $this->noVariants,
             'dateDescriptor' => $this->dateDescriptor,
-            'dateRange' => $this->dateRange,
+            'dateRange' => $this->toCsv($this->dateRange),
             'title' => $this->title,
             'titleStartsWith' => $this->titleStartsWith,
             'startYear' => $this->startYear,

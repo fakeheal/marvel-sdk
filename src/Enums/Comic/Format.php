@@ -11,5 +11,6 @@ enum Format: string
     case digest = "Digest";
     case graphicNovel = "Graphic Novel";
     case digitalComic = "Digital Comic";
+    case digitalVerticalComic = "Digital Vertical Comic";
     case infiniteComic = "Infinite Comic";
 }

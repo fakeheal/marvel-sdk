@@ -31,7 +31,7 @@ abstract class Request extends SaloonRequest
         if (!$array) {
             return null;
         }
-        
+
         return $this->toCsv(array_map(fn(BackedEnum $enum) => $enum->value, $array));
     }
 }
