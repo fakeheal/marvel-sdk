@@ -8,6 +8,7 @@ namespace Chronoarc\Marvel\Resource;
 use Chronoarc\Marvel\Enums\Comic\Format;
 use Chronoarc\Marvel\Enums\Comic\FormatType;
 use Chronoarc\Marvel\Enums\Comic\OrderBy;
+use Chronoarc\Marvel\Enums\Series\Type;
 use Chronoarc\Marvel\Requests\Events\GetEvent;
 use Chronoarc\Marvel\Requests\Events\GetEventCharacters;
 use Chronoarc\Marvel\Requests\Events\GetEventComics;
@@ -165,7 +166,7 @@ class Events extends Resource
      * @param ?array $stories Return only series which contain the specified stories.
      * @param ?array $creators Return only series which feature work by the specified creators.
      * @param ?array $characters Return only series which feature the specified characters.
-     * @param ?string $seriesType Filter the series by publication frequency type.
+     * @param Type|null $seriesType Filter the series by publication frequency type.
      * @param ?array $contains Return only series containing one or more comics with the specified format.
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
@@ -184,7 +185,7 @@ class Events extends Resource
         ?array             $stories = null,
         ?array             $creators = null,
         ?array             $characters = null,
-        ?string            $seriesType = null,
+        ?Type            $seriesType = null,
         ?array             $contains = null,
         ?array             $orderBy = null,
         ?int               $limit = null,

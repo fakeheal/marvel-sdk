@@ -6,7 +6,7 @@ declare(strict_types=1);
 namespace Chronoarc\Marvel\Requests\Creators;
 
 use Chronoarc\Marvel\Dto\Series\SeriesDataWrapper;
-use Chronoarc\Marvel\Enums\SeriesType;
+use Chronoarc\Marvel\Enums\Series\Type;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use Chronoarc\Marvel\Request;
 use DateTimeInterface;
@@ -34,7 +34,7 @@ class GetCreatorSeries extends Request
      * @param ?array $stories Return only series which contain the specified stories.
      * @param ?array $events Return only series which have comics that take place during the specified events.
      * @param ?array $characters Return only series which feature the specified characters.
-     * @param ?SeriesType $seriesType Filter the series by publication frequency type.
+     * @param ?Type $seriesType Filter the series by publication frequency type.
      * @param ?array $contains Return only series containing one or more comics with the specified format.
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
@@ -50,7 +50,7 @@ class GetCreatorSeries extends Request
         protected ?array             $stories = null,
         protected ?array             $events = null,
         protected ?array             $characters = null,
-        protected ?SeriesType        $seriesType = null,
+        protected ?Type              $seriesType = null,
         protected ?array             $contains = null,
         protected ?array             $orderBy = null,
         protected ?int               $limit = null,

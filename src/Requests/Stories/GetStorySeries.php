@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace Chronoarc\Marvel\Requests\Stories;
 
 use Chronoarc\Marvel\Dto\Series\SeriesDataWrapper;
+use Chronoarc\Marvel\Enums\Series\Type;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use Chronoarc\Marvel\Request;
 use DateTimeInterface;
@@ -50,7 +51,7 @@ class GetStorySeries extends Request
         protected ?array             $comics = null,
         protected ?array             $creators = null,
         protected ?array             $characters = null,
-        protected ?string            $seriesType = null,
+        protected ?Type            $seriesType = null,
         protected ?array             $contains = null,
         protected ?array             $orderBy = null,
         protected ?int               $limit = null,
@@ -92,7 +93,7 @@ class GetStorySeries extends Request
             'comics' => $this->toCsv($this->comics),
             'creators' => $this->toCsv($this->creators),
             'characters' => $this->toCsv($this->characters),
-            'seriesType' => $this->seriesType,
+            'seriesType' => $this->seriesType?->value,
             'contains' => $this->contains,
             'orderBy' => $this->orderBy,
             'limit' => $this->limit,

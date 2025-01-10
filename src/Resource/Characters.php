@@ -8,6 +8,7 @@ namespace Chronoarc\Marvel\Resource;
 use Chronoarc\Marvel\Enums\Comic\Format;
 use Chronoarc\Marvel\Enums\Comic\FormatType;
 use Chronoarc\Marvel\Enums\Comic\OrderBy as ComicOrderBy;
+use Chronoarc\Marvel\Enums\Series\Type;
 use Chronoarc\Marvel\Requests\Characters\GetCharacter;
 use Chronoarc\Marvel\Requests\Characters\GetCharacterComics;
 use Chronoarc\Marvel\Requests\Characters\GetCharacterEvents;
@@ -32,7 +33,7 @@ class Characters extends Resource
      * @param ?array $stories Return only series which contain the specified stories
      * @param ?array $events Return only series which have comics that take place during the specified events
      * @param ?array $creators Return only series which feature work by the specified creators
-     * @param ?string $seriesType Filter the series by publication frequency type.
+     * @param ?Type $seriesType Filter the series by publication frequency type.
      * @param ?array $contains Return only series containing one or more comics with the specified format.
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
@@ -51,7 +52,7 @@ class Characters extends Resource
         ?array             $stories = null,
         ?array             $events = null,
         ?array             $creators = null,
-        ?string            $seriesType = null,
+        ?Type              $seriesType = null,
         ?array             $contains = null,
         ?array             $orderBy = null,
         ?int               $limit = null,
@@ -96,8 +97,8 @@ class Characters extends Resource
      */
     public function getCharacterComics(
         int                $characterId,
-        ?string            $format = null,
-        ?string            $formatType = null,
+        ?Format            $format = null,
+        ?FormatType        $formatType = null,
         ?bool              $noVariants = null,
         ?string            $dateDescriptor = null,
         ?array             $dateRange = null,

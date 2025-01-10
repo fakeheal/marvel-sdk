@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Chronoarc\Marvel\Requests\Characters;
 
 use Chronoarc\Marvel\Dto\Series\SeriesDataWrapper;
+use Chronoarc\Marvel\Enums\Series\Type;
 use Chronoarc\Marvel\Exceptions\InvalidAttributeTypeException;
 use Chronoarc\Marvel\Request;
 use DateTimeInterface;
@@ -33,7 +34,7 @@ class GetCharacterSeries extends Request
      * @param ?array $stories Return only series which contain the specified stories
      * @param ?array $events Return only series which have comics that take place during the specified events.
      * @param ?array $creators Return only series which feature work by the specified creators.
-     * @param ?string $seriesType Filter the series by publication frequency type.
+     * @param ?Type $seriesType Filter the series by publication frequency type.
      * @param ?array $contains Return only series containing one or more comics with the specified format.
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
@@ -49,7 +50,7 @@ class GetCharacterSeries extends Request
         protected ?array             $stories = null,
         protected ?array             $events = null,
         protected ?array             $creators = null,
-        protected ?string            $seriesType = null,
+        protected ?Type            $seriesType = null,
         protected ?array             $contains = null,
         protected ?array             $orderBy = null,
         protected ?int               $limit = null,
@@ -94,7 +95,7 @@ class GetCharacterSeries extends Request
             'stories' => $this->toCsv($this->stories),
             'events' => $this->toCsv($this->events),
             'creators' => $this->toCsv($this->creators),
-            'seriesType' => $this->seriesType,
+            'seriesType' => $this->seriesType?->value,
             'contains' => $this->contains,
             'orderBy' => $this->orderBy,
             'limit' => $this->limit,

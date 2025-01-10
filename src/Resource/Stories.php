@@ -8,6 +8,7 @@ namespace Chronoarc\Marvel\Resource;
 use Chronoarc\Marvel\Enums\Comic\FormatType;
 use Chronoarc\Marvel\Enums\Comic\OrderBy;
 use Chronoarc\Marvel\Enums\Format;
+use Chronoarc\Marvel\Enums\Series\Type;
 use Chronoarc\Marvel\Requests\Stories\GetStories;
 use Chronoarc\Marvel\Requests\Stories\GetStory;
 use Chronoarc\Marvel\Requests\Stories\GetStoryCharacters;
@@ -177,7 +178,7 @@ class Stories extends Resource
      * @param ?array $comics Return only series which contain the specified comics (accepts a comma-separated list of ids).
      * @param ?array $creators Return only series which feature work by the specified creators (accepts a comma-separated list of ids).
      * @param ?array $characters Return only series which feature the specified characters (accepts a comma-separated list of ids).
-     * @param ?string $seriesType Filter the series by publication frequency type.
+     * @param ?Type $seriesType Filter the series by publication frequency type.
      * @param ?array $contains Return only series containing one or more comics with the specified format.
      * @param ?array $orderBy Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed.
      * @param ?int $limit Limit the result set to the specified number of resources.
@@ -196,7 +197,7 @@ class Stories extends Resource
         ?array             $comics = null,
         ?array             $creators = null,
         ?array             $characters = null,
-        ?string            $seriesType = null,
+        ?Type            $seriesType = null,
         ?array             $contains = null,
         ?array             $orderBy = null,
         ?int               $limit = null,
